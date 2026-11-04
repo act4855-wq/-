@@ -1,4 +1,4 @@
-const CACHE='sermon-mobile-v5-1-safari-20261105';
+const CACHE='sermon-mobile-v5-2-fetch-binding-20261105';
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(['./','./index.html','./manifest.webmanifest'])).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(names=>Promise.all(names.filter(name=>name.startsWith('sermon-mobile-')&&name!==CACHE).map(name=>caches.delete(name)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
